@@ -41,7 +41,7 @@ class PageController extends Controller {
 				$this->get('session')->getFlashBag()->add('notice', 'saludos ');
 
 				// esta opcion esta obsoleta $this->addFlash('blogger-notice', 'Your contact enquiry was successfully sent. Thank you!');
-
+                                // cambio 2
 				// realiza alguna acción, como enviar un correo electrónico
 
 				// Redirige - Esto es importante para prevenir que el usuario
