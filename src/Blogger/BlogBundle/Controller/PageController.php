@@ -40,7 +40,7 @@ class PageController extends Controller {
 
 				$this->get('session')->getFlashBag()->add('notice', 'saludos ');
 
-				//$this->addFlash('blogger-notice', 'Your contact enquiry was successfully sent. Thank you!');
+				// esta opcion esta obsoleta $this->addFlash('blogger-notice', 'Your contact enquiry was successfully sent. Thank you!');
 
 				// realiza alguna acción, como enviar un correo electrónico
 
