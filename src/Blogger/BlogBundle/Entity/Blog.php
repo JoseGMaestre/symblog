@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="blog")
+ * @ORM\HasLifecycleCallbacks()
  */
 
 class Blog {
@@ -14,6 +15,7 @@ class Blog {
 	 * @ORM\Column(type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
+
 	protected $id;
 
 	/**
@@ -53,181 +55,171 @@ class Blog {
 	 */
 	protected $updated;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	/**
+	 * Get id
+	 *
+	 * @return integer
+	 */
+	public function getId() {
+		return $this->id;
+	}
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Blog
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
+	/**
+	 * Set title
+	 *
+	 * @param string $title
+	 *
+	 * @return Blog
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * Get title
+	 *
+	 * @return string
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return Blog
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
+	/**
+	 * Set author
+	 *
+	 * @param string $author
+	 *
+	 * @return Blog
+	 */
+	public function setAuthor($author) {
+		$this->author = $author;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
+	/**
+	 * Get author
+	 *
+	 * @return string
+	 */
+	public function getAuthor() {
+		return $this->author;
+	}
 
-    /**
-     * Set blog
-     *
-     * @param string $blog
-     *
-     * @return Blog
-     */
-    public function setBlog($blog)
-    {
-        $this->blog = $blog;
+	/**
+	 * Set blog
+	 *
+	 * @param string $blog
+	 *
+	 * @return Blog
+	 */
+	public function setBlog($blog) {
+		$this->blog = $blog;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get blog
-     *
-     * @return string
-     */
-    public function getBlog()
-    {
+	/**
+	 * Get blog
+	 *
+	 * @return string
+	 */
+	public function getBlog($length = null)
+{
+    if (false === is_null($length) && $length > 0)
+        return substr($this->blog, 0, $length);
+    else
         return $this->blog;
-    }
+}
 
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Blog
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
+	/**
+	 * Set image
+	 *
+	 * @param string $image
+	 *
+	 * @return Blog
+	 */
+	public function setImage($image) {
+		$this->image = $image;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
+	/**
+	 * Get image
+	 *
+	 * @return string
+	 */
+	public function getImage() {
+		return $this->image;
+	}
 
-    /**
-     * Set tags
-     *
-     * @param string $tags
-     *
-     * @return Blog
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
+	/**
+	 * Set tags
+	 *
+	 * @param string $tags
+	 *
+	 * @return Blog
+	 */
+	public function setTags($tags) {
+		$this->tags = $tags;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get tags
-     *
-     * @return string
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
+	/**
+	 * Get tags
+	 *
+	 * @return string
+	 */
+	public function getTags() {
+		return $this->tags;
+	}
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return Blog
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
+	/**
+	 * Set created
+	 *
+	 * @param \DateTime $created
+	 *
+	 * @return Blog
+	 */
+	public function setCreated($created) {
+		$this->created = $created;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
+	/**
+	 * Get created
+	 *
+	 * @return \DateTime
+	 */
+	public function getCreated() {
+		return $this->created;
+	}
 
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     *
-     * @return Blog
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
+	/**
+	 * Set updated
+	 *
+	 * @param \DateTime $updated
+	 *
+	 * @return Blog
+	 */
+	public function setUpdated($updated) {
+		$this->updated = $updated;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
+	/**
+	 * Get updated
+	 *
+	 * @return \DateTime
+	 */
+	public function getUpdated() {
+		return $this->updated;
+	}
+
 }
