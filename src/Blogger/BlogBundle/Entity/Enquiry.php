@@ -3,6 +3,7 @@
 
 namespace Blogger\BlogBundle\Entity;
 use Symfony\Component\Validator\Constraints\Email;
+use Doctrine\ORM\Mapping as ORM;
 
 //  (deprecate)  use Symfony\Component\Validator\Constraints\MaxLength;
 //   (deprecate) use Symfony\Component\Validator\Constraints\MinLength;

@@ -2,9 +2,13 @@
 // src/Blogger/BlogBundle/Entity/Blog.php
 
 namespace Blogger\BlogBundle\Entity;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository ;
+use Doctrine\Common\Collections\ArrayCollection;
+//use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Repository\BlogRepository")
  * @ORM\Table(name="blog")
  * @ORM\HasLifecycleCallbacks()
  */
@@ -14,8 +18,27 @@ class Blog {
 	 * @ORM\Id
 	 * @ORM\Column(type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
+         * 
 	 */
 
+    
+    /*
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="blog")
+     */
+    protected $comments;
+
+    // ..
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+
+    
+    
 	protected $id;
 
 	/**
@@ -43,7 +66,7 @@ class Blog {
 	 */
 	protected $tags;
 
-	protected $comments;
+	//protected $comments;
 
 	/**
 	 * @ORM\Column(type="datetime")
@@ -126,13 +149,14 @@ class Blog {
 	 *
 	 * @return string
 	 */
-	public function getBlog($length = null)
-{
-    if (false === is_null($length) && $length > 0)
-        return substr($this->blog, 0, $length);
-    else
-        return $this->blog;
-}
+	public function getBlog($length = null) {
+		if (false === is_null($length) && $length > 0) {
+			return substr($this->blog, 0, $length);
+		} else {
+
+			return $this->blog;
+		}
+	}
 
 	/**
 	 * Set image
@@ -222,4 +246,14 @@ class Blog {
 		return $this->updated;
 	}
 
+
+    /**
+     * Get comments
+     *
+     * @return integer
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

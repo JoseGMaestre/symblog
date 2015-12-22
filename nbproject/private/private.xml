@@ -7,8 +7,12 @@
             <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/DataFixtures/ORM/BlogFixtures.php</file>
             <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Entity/Blog.php</file>
             <file>file:/var/www/html/proyectos/symblog/app/config/config.yml</file>
+            <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Entity/Enquiry.php</file>
+            <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Entity/Comment.php</file>
             <file>file:/var/www/html/proyectos/symblog/app/config/parameters.yml</file>
             <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Controller/BlogController.php</file>
+            <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Repository/BlogRepository.php</file>
+            <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Resources/views/Blog/blog:show.html.twig</file>
             <file>file:/var/www/html/proyectos/symblog/src/Blogger/BlogBundle/Controller/PageController.php</file>
         </group>
     </open-files>

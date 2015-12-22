@@ -11,17 +11,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class PageController extends Controller {
 
 	public function indexAction() {
-		$em = $this->getDoctrine()
-		           ->getEntityManager();
+		
+    {
+        $em = $this->getDoctrine()
+                   ->getEntityManager();
 
-		$blogs = $em->createQueryBuilder()
-		            ->select('b')
-		            ->from('BloggerBlogBundle:Blog', 'b')
-		            ->addOrderBy('b.created', 'DESC')
-		            ->getQuery()
-		            ->getResult();
+        $blogs = $em->getRepository('BloggerBlogBundle:Blog')
+                    ->getLatestBlogs();
 
-		return $this->render('BloggerBlogBundle:Page:index.html.twig', array('blogs' => $blogs));
+        return $this->render('BloggerBlogBundle:Page:index.html.twig', array(
+            'blogs' => $blogs
+        ));
+    }
 	}
 
 	public function aboutAction() {

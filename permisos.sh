@@ -5,3 +5,4 @@ sudo chmod 777 /var/www/html/proyectos/symblog/app/cache/dev/doctrine/orm/Proxie
 sudo chmod 777 /var/www/html/proyectos/symblog/app/cache/dev/annotations
 sudo mkdir /var/www/html/proyectos/symblog/app/cache/dev/assetic/config/
 sudo chmod 777  /var/www/html/proyectos/symblog/app/cache/dev/assetic/config/
+sudo chmod 777 /var/www/html/proyectos/symblog/web/images/
